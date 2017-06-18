@@ -1,0 +1,46 @@
+.main{
+    padding: 20px;
+}
+
+.question-info{
+    text-align: center;
+}
+
+.comment-group-title{
+    margin-top: 20px;
+}
+
+.form-container{
+    width: 500px;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.comment-group li{
+    border-bottom:1px solid #eee;
+    padding: 10px 0;
+}
+
+.comment-group li .user-info{
+    height: 40px;
+    line-height:40px;
+    color: #9b9b9b;
+    font-size: 16px;
+}
+
+.user-info .avatar{
+    height:40px;
+    width: 40px;
+    float: left;
+    border-radius: 50%;
+}
+
+.user-info .username{
+    margin-left: 10px;
+}
+.user-info .create-time{
+    float: right;
+}
+.comment-content{
+    margin-left: 50px;
+}

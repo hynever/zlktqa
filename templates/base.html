@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base.css') }}">
+    {% block head %}{% endblock %}
+    <title>{% block title %}{% endblock %}-知了课堂问答平台</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img class="zhiliaologo" src="{{ url_for('static',filename='images/zhiliaologo.png') }}" alt="">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">首页<span class="sr-only">(current)</span></a></li>
+                    <li><a href="{{ url_for('question') }}">发布问答</a></li>
+                </ul>
+                <form class="navbar-form navbar-left" action="{{ url_for('search') }}">
+                    <div class="form-group">
+                        <input name="q" type="text" class="form-control" placeholder="请输入关键字">
+                    </div>
+                    <button type="submit" class="btn btn-default">查找</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user %}
+                        <li><a href="{{ url_for('login') }}">{{ user.username }}</a></li>
+                        <li><a href="{{ url_for('logout') }}">注销</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}">登录</a></li>
+                        <li><a href="{{ url_for('regist') }}">注册</a></li>
+                    {% endif %}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="main">
+        {% block main %}{% endblock %}
+
+    </div>
+</body>
+</html>
